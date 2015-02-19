@@ -1,4 +1,5 @@
 require 'csv'
+
 class User < ActiveRecord::Base
   has_many :meals
   has_many :pets
@@ -14,8 +15,8 @@ class User < ActiveRecord::Base
 #use self b/c calling the whole user class not an instance of the class
   def self.to_csv
     CSV.generate do |csv|
-      csv << User.new.attributes.keys
-      User.all.each do |user|
+      csv << column_names
+      all.each do |user|
         csv << user.attributes.values
       end
     end
