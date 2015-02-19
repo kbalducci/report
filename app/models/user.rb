@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
     "#{last_name}, #{first_name}"
   end
 
+
+
 #use self b/c calling the whole user class not an instance of the class
   def self.to_csv
     CSV.generate do |csv|
